@@ -81,7 +81,7 @@ def insult(percentage):
     textFile.close()
 
 
-def shit(lil,two):
+def Ranker(personNumber,whichPerson):
     people = [[], []]
 
     window = tkinter.Toplevel()
@@ -134,11 +134,11 @@ def shit(lil,two):
         formatImage = pilImage.thumbnail(size, PIL.Image.ANTIALIAS)
         image = PIL.ImageTk.PhotoImage(pilImage)
         canvasPhotos.append(image)
-    if len(two)==5:
-        canvasPhotos=two
+    if len(whichPerson)==5:
+        canvasPhotos=whichPerson
 
     numCount = 0
-    aperson = people[lil]
+    aperson = people[personNumber]
 
     for k in canvasPhotos:
         canvas.create_rectangle((0, 0, 560, 433), fill="#FFA500")
@@ -154,13 +154,13 @@ def shit(lil,two):
 def main():
     start()
     # Person A rates 5 images
-    blue=[]
-    A,win,sut=shit(0,blue)
+    personOne=[]
+    scoresOne,win,personTwo=Ranker(0,personOne)
     win.destroy()
     middle()
     # Person B rates 5 images
-    B,stop,yuh=shit(1,sut)
-    compareScores(A, B)
+    scoresTwo,stop,noPerson=Ranker(1,personTwo)
+    compareScores(scoresOne, scoresTwo)
     stringbuilder ="file:///C:/Users/benja/PycharmProjects/KUHackathonFinished/index.html"
 
     webbrowser.open(stringbuilder)
